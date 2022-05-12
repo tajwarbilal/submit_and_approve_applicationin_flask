@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+
+    <div class="main">
+
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container">
+                <div class="signup-content">
+                    <form action="/submitapplication" method="post" id="signup-form" class="signup-form">
+                        <h2 class="form-title">Submit Application</h2>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="studentid" id="studentid" placeholder="Student Id"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="yourname" id="yourname" placeholder="Your Name"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="credithours" id="credithours" placeholder="Level and Credit Hours"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="department" id="department" placeholder="Department"/>
+                        </div>
+
+                          <div class="form-group">
+                            <select class="form-input" id="advisor" name="advisor">
+                              <option>Gohar</option>
+                              <option>Jamilla</option>
+                              <option>Sadaf</option>
+                              <option>Aqsa</option>
+                              <option>Huma</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group">
+                            <textarea class="form-input" id="comments" name="comments" rows="3"></textarea>
+                          </div>
+
+                        <div class="form-group">
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Submit Application"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html></title>
+</head>
+<body>

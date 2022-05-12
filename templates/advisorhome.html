@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="main">
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content" style="width:100%;">
+
+
+                      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Check Application</button>
+                      <a href="/logout" class="btn btn-info">logout</a>
+                      <div id="demo2" class="collapse">
+                          <div class="container">
+                            {{status}}
+                          </div>
+                      </div><br><br>
+
+                      <div id="demo" class="collapse">
+                          <div class="container">
+                                  <table class="table" style="width:77%;">
+                                    <thead>
+                                      <tr>
+                                          <td>S.ID</td>
+                                          <td>S.Name</td>
+                                          <td>Comments</td>
+                                          <td>Status</td>
+                                          <td>Approve</td>
+                                          <td>Reject</td>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                     {% for i in result %}
+                                      <tr>
+                                        <td>{{i['studentid']}}</td>
+                                        <td>{{i['name']}}</td>
+                                        <td>{{i['comments']}}</td>
+                                        <td>{{i['appstatus']}}</td>
+                                        <td><a href="/approve/{{i['studentid']}}">Approve</a></td>
+                                        <td><a href="/reject/{{i['studentid']}}">Reject</a></td>
+                                      </tr>
+                                     {% endfor %}
+                                    </tbody>
+                                  </table>
+                                </div>
+                      </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

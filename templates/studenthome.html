@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="main">
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content" style="width:100%;">
+
+
+                      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Submit Application</button>
+                      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo3">Edit Application</button>
+                      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo2">Status</button>
+                      <a href="/logout" class="btn btn-info">logout</a>
+                      <div id="demo2" class="collapse">
+                          <div class="container">
+                            {{status}}
+                          </div>
+                      </div><br><br>
+
+                      <div id="demo" class="collapse">
+                            <form action="/submitapplication" method="post" id="signup-form" class="signup-form">
+                                <h2 class="form-title">Submit Application</h2>
+                                <div class="form-group">
+                                    <input type="text" class="form-input" name="studentid" id="studentid" placeholder="Student Id"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-input" name="yourname" id="yourname" placeholder="Your Name"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-input" name="credithours" id="credithours" placeholder="Level and Credit Hours"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-input" name="department" id="department" placeholder="Department"/>
+                                </div>
+
+                                  <div class="form-group">
+                                    <select class="form-input" id="advisor" name="advisor">
+                                        {% for i in advisor %}
+                                            <option>{{i['name']}}</option>
+                                        {% endfor %}
+                                    </select>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <textarea class="form-input" id="comments" name="comments" rows="3"></textarea>
+                                  </div>
+
+                                <div class="form-group">
+                                    <input type="submit" name="submit" id="submit" class="form-submit" value="Submit Application"/>
+                                </div>
+                            </form>
+                      </div>
+
+
+
+                    <div id="demo3" class="collapse">
+                            <form action="/editapplication" method="post"  class="signup-form">
+                                <h2 class="form-title">Edit Application</h2>
+                                <div class="form-group">
+                                    <input type="text" class="form-input" name="editstudentid" id="editstudentid" value="{{result['studentid']}}" placeholder="{{result['studentid']}}"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-input" name="edityourname" id="edityourname" value="{{result['name']}}" placeholder="{{result['name']}}"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-input" name="editcredithours" id="editcredithours" value="{{result['studentlevel']}}" placeholder="{{result['studentlevel']}}"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-input" name="editdepartment" id="editdepartment" value="{{result['department']}}" placeholder="{{result['department']}}"/>
+                                </div>
+
+                                  <div class="form-group">
+                                    <select class="form-input" id="editadvisor" name="advisor">
+                                        {% for i in advisor %}
+                                            <option value="{{i['name']}}">{{i['name']}}</option>
+                                        {% endfor %}
+                                    </select>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <textarea class="form-input" id="editcomments" name="comments" rows="3" value="comments"></textarea>
+                                  </div>
+
+                                <div class="form-group">
+                                    <input type="submit" name="submit"  class="form-submit" value="Submit Application"/>
+                                </div>
+                            </form>
+                      </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
